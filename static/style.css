@@ -1,0 +1,24 @@
+.start_button {
+    width: auto; /* Set the desired width of the button */
+    height: auto; /* Set the desired height of the button */
+    position: fixed;
+    top: 78%; /* Position the button vertically in the center */
+    left: 63%; /* Position the button horizontally in the center */
+    transform: translate(-50%, -50%); /* Adjust the position based on the offset */
+    cursor: pointer; /* Set the cursor to pointer on hover */
+  }
+html, body {
+    overflow: hidden;
+  }
+
+.bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/static/bg1.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}

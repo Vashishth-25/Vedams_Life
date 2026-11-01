@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* Make the video unclickable */
+}
+
+.content{
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+video::-webkit-media-controls {
+  display:none !important;
+}
+
+/* Style to prevent clicking on the video */
+#myVideo {
+  pointer-events: none;
+}
+
+#imageContainer {
+  position: fixed;
+  top: 80%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  
+}
+
+#clickableImage {
+  width: 70%; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  cursor: pointer;
+}
+#backgroundAfterVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/static/lvl1_bg.png');
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='levels.css') }}">
+    <title>Levels</title>
+
+<style>
+    #music{
+        z-index: -1;
+    }
+</style>
+
+</head>
+<body>
+<div class="lvl_bg">
+    <audio id="music" autoplay loop>
+        <source src="static\bgm1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="levels-box">
+        <a href="{{ url_for('lvl_1') }}">
+            <img src="static\lvl1.jpg" alt="Click Me" class="lvl1">
+        </a>
+        <a href="{{ url_for('lvl_2') }}">
+            <img src="static\lvl2.jpg" alt="Click Me" class="lvl2">
+        </a>
+        <a href="{{ url_for('lvl_3') }}">
+            <img src="static\lvl3.png" alt="Click Me" class="lvl3">
+        </a>
+        <a href="{{ url_for('lvl_4') }}">
+            <img src="static\lvl4.png" alt="Click Me" class="lvl4">
+        </a>
+        <a href="{{ url_for('lvl_5') }}">
+            <img src="static\lvl5.png" alt="Click Me" class="lvl5">
+        </a>
+    </div>
+</div>
+</body>
+</html>

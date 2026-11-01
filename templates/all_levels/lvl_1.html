@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lvl_1.css') }}">
+    <title>Level 1: Multiplications Of Two Numbers</title>
+</head>
+    
+<video id="myVideo" width="" height="360" controlsList="nodownload" disablePictureInPicture >
+    <source src="{{ url_for('static', filename='vids/intro.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+ 
+<div id="imageContainer">
+    <img id="clickableImage" src="static\lvl1_button.png" alt="Clickable Image" onclick="redirectToThirdVideo()">
+</div>
+
+<div id="backgroundAfterVideo"></div>
+
+<script>
+    var video = document.getElementById("myVideo");
+    var content = document.querySelector(".content");
+
+    video.play();
+    
+    setTimeout(function() {
+        video.style.display = "none";
+        content.style.zIndex = "1"; 
+    }, 26500); 
+
+
+    video.addEventListener('ended', function() {
+        var secondVideo = document.createElement('video');
+        secondVideo.src = "{{ url_for('static', filename='vids/lvl1_main.mp4') }}";
+        secondVideo.type = "video/mp4";
+        secondVideo.autoplay = true;
+        secondVideo.style.position = "fixed";
+        secondVideo.style.top = "0";
+        secondVideo.style.left = "0";
+        secondVideo.style.width = "100%";
+        secondVideo.style.height = "auto";
+        secondVideo.style.objectFit = "contain";
+        document.body.appendChild(secondVideo);
+        setTimeout(function() {
+            secondVideo.style.display = "none";
+            content.style.zIndex = "1";
+        }, 42000);
+        secondVideo.addEventListener('ended', function() {
+                // Show the clickable image container
+                backgroundAfterVideo.style.display = "block";
+                imageContainer.style.display = "block";
+            });
+    });
+    function redirectToThirdVideo() {
+            // Redirect to the third video
+            window.location.href = "{{ url_for('lvl1_lec') }}";
+    }
+</script>
+
+</body>
+</html>

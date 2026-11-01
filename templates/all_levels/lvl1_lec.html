@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn</title>
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; 
+    }
+    
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+<body>
+    <video id="myVideo2" width="" height="360" controlsList="nodownload" disablePictureInPicture >
+        <source src="{{ url_for('static', filename='vids/lvl1_lec.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <form action="{{ url_for('play_video') }}" method="post">
+
+        <label for="input_value">Calculate: 18 X 19</label>
+        <input type="text" id="input_value" name="input_value" required>
+        <button type="submit">Submit answer</button>
+    </form>
+
+    <script>
+        var video = document.getElementById("myVideo2");
+        var content = document.querySelector(".content");
+        video.autoplay = true;
+        video.style.position = "fixed";
+        video.style.left = "0";
+        video.style.width = "100%";
+        video.style.height = "auto";
+        video.style.objectFit = "contain";
+
+        video.play();
+    
+        setTimeout(function() {
+            video.style.display = "none";
+            content.style.zIndex = "1"; 
+        }, 63500); 
+    </script>
+</body>
+</html>

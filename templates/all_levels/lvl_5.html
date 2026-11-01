@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonus Level</title>
+    <style>
+        body {
+  margin: 0;
+  overflow: hidden;
+}
+body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            background-color: rgb(47, 44, 44); 
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  min-height: 115vh;
+  pointer-events: none; /* Make the video unclickable */
+}
+
+.content{
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+video::-webkit-media-controls {
+  display:none !important;
+}
+
+/* Style to prevent clicking on the video */
+#myVideo {
+  pointer-events: none;
+}
+
+button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <video id="myVideo" width="" height="360" controlsList="nodownload" disablePictureInPicture >
+        <source src="{{ url_for('static', filename='lvl5_main.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button onclick="learnAgain()">Learn Again</button>
+    <button onclick="mainMenu()">Main Menu</button>
+
+    <script>
+        var video = document.getElementById("myVideo");
+    var content = document.querySelector(".content");
+
+    video.play();
+    
+    setTimeout(function() {
+        video.style.display = "none";
+        content.style.zIndex = "1"; 
+    }, 53000);
+    function learnAgain() {
+        window.location.href = '/lvl5'
+    }
+            
+    function mainMenu() {
+        window.location.href = '/levels'
+    }
+    </script>
+</body>
+</html>

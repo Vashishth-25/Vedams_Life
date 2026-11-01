@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lvl_1.css') }}">
+    <title>Level 3: Quadratic Equation</title>
+</head>
+<style>
+#backgroundAfterVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-image: url('/static/lvl3_bg.png');
+  z-index: -2;
+  background-size: fit;
+  background-position: center;
+  min-height: 115vh;
+}
+  #imageContainer {
+  position: fixed;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  
+}
+
+#clickableImage {
+  width: 70%; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  cursor: pointer;
+}
+
+</style>
+
+<video id="myVideo" width="" height="360" controlsList="nodownload" disablePictureInPicture >
+    <source src="{{ url_for('static', filename='vids/lvl3_main.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<div id="imageContainer">
+    <img id="clickableImage" src="static\lvl1_button.png" alt="Clickable Image" onclick="redirectToThirdVideo()">
+</div>
+
+<div id="backgroundAfterVideo"></div>
+
+<script>
+    var video = document.getElementById("myVideo");
+    var content = document.querySelector(".content");
+    video.autoplay = true;
+    video.style.position = "fixed";
+    video.style.top = "0";
+    video.style.left = "0";
+    video.style.width = "100%";
+    video.style.height = "auto";
+    video.style.objectFit = "contain";
+
+    video.play();
+    
+    setTimeout(function() {
+        video.style.display = "none";
+        content.style.zIndex = "1"; 
+    }, 58500); 
+
+
+    video.addEventListener('ended', function() {
+        backgroundAfterVideo.style.display = "block";
+        imageContainer.style.display = "block";
+    });
+    function redirectToThirdVideo() {
+            // Redirect to the third video
+            window.location.href = "{{ url_for('lvl3_lec') }}";
+    }
+</script>
+
+</body>
+</html>
